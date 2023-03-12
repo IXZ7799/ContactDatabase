@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Contact Database</string>
+
+    <string name="nameText">Name:</string>
+    <string name="emailText">Email:</string>
+    <string name="dobText">DoB:</string>
+    <string name="phoneText">Phone:</string>
+    <string name="detailsText">-</string>
+
+    <string name="nameText1">Name:</string>
+    <string name="emailText1">Email:</string>
+    <string name="dobText1">DoB:</string>
+    <string name="phoneText1">Phone:</string>
+
+    <string name="nameInput">Jane Doe</string>
+    <string name="emailInput">jd@example.com</string>
+    <string name="dobInput">DD/MM/YYYY</string>
+    <string name="phoneInput">+44 07123 456789</string>
+
+    <string name="nameInput1">tvName</string>
+    <string name="emailInput1">tvEmail</string>
+    <string name="dobInput1">tvDob</string>
+    <string name="phoneInput1">tvPhone</string>
+
+    <string name="viewBtn">VIEW DETAILS</string>
+    <string name="saveBtn">SAVE DETAILS</string>
+    <string name="backBtn">BACK</string>
+
+</resources>
