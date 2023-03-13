@@ -1,8 +1,10 @@
 package com.example.contactdatabase;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +14,8 @@ import android.widget.Toast;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
 public class MainActivity extends AppCompatActivity {
+
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +32,14 @@ public class MainActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(v -> saveDetails());
 
         Button selectBtn = findViewById(R.id.selectBtn);
-        selectBtn.setOnClickListener(view -> changeImage());
+        selectBtn.setOnClickListener(view -> ImagePicker.with(MainActivity.this)
+                .crop()
+                .maxResultSize(150,150)
+                .start());
 
-        ImageView img = findViewById(R.id.imageView);
-    }
+        ImageView imageView = findViewById(R.id.imageView);
+        imageView.setBackgroundResource(R.drawable.userimg);
 
-    private void changeImage() {
-        ImagePicker.with(MainActivity.this)
-                .crop()	    			                  //Crop image(Optional), Check Customization for more option
-                .compress(1024)			          //Final image size will be less than 1 MB(Optional)
-                .maxResultSize(1080, 1080)	  //Final image resolution will be less than 1080 x 1080(Optional)
-                .start();
     }
 
     private void saveDetails() {
@@ -66,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
     } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Uri uri = data.getData();
+        image.setImageURI(uri);
     }
 }
 
