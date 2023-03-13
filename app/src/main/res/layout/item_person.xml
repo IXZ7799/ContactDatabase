@@ -20,7 +20,7 @@
             android:id="@+id/nameText1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:text="@string/nameText1"
@@ -31,7 +31,7 @@
             android:id="@+id/emailText1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:text="@string/emailText1"
@@ -42,7 +42,7 @@
             android:id="@+id/dobText1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:text="@string/dobText1"
@@ -53,7 +53,7 @@
             android:id="@+id/phoneText1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:text="@string/phoneText1"
@@ -124,5 +124,17 @@
             app:layout_constraintStart_toEndOf="@+id/phoneText1"
             app:layout_constraintTop_toBottomOf="@+id/tvDob"
             tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/avatarDesc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck"
+            tools:srcCompat="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

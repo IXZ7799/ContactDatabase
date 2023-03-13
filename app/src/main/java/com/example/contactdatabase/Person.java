@@ -2,7 +2,7 @@ package com.example.contactdatabase;
 
 public class Person {
     private final String name, email, dob, phone;
-    private int id;
+    private int id, avatarId;
 
     public Person(String name, String email, String dob, String phone) {
         this.name = name;
@@ -10,7 +10,8 @@ public class Person {
         this.dob = dob;
         this.phone = phone;
     }
-    public Person(int id, String name, String email, String dob, String phone) {
+    public Person(int id, int avatarId, String name, String email, String dob, String phone) {
+        this.avatarId = avatarId;
         this.id = id;
         this.name = name;
         this.email = email;
@@ -19,6 +20,7 @@ public class Person {
     }
 
     public int getId(){return id;}
+    public int getAvatarId() {return avatarId;}
     public String getName(){
         return name;
     }
