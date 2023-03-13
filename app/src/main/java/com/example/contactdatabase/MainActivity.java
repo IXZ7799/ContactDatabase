@@ -68,10 +68,11 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        assert data != null;
         Uri uri = data.getData();
         image.setImageURI(uri);
     }
