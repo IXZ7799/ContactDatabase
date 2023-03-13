@@ -25,5 +25,6 @@
     <string name="viewBtn">VIEW DETAILS</string>
     <string name="saveBtn">SAVE DETAILS</string>
     <string name="backBtn">BACK</string>
+    <string name="selectBtn">SELECT AVATAR</string>
 
 </resources>
