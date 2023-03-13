@@ -12,6 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "details";
 
     public static final String ID_COLUMN = "person_id";
+    public static final String PICID_COLUMN = "picture_id";
     public static final String NAME_COLUMN = "name";
     public static final String EMAIL_COLUMN = "email";
     public static final String DOB_COLUMN = "dob";
@@ -22,12 +23,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = String.format(
             "CREATE TABLE %s (" +
                     "%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "%s INTEGER AUTOINCREMENT, " +
                     "%s TEXT, " +
                     "%s TEXT, " +
                     "%s TEXT, " +
                     "%s TEXT) ",
 
-            DATABASE_NAME, ID_COLUMN, NAME_COLUMN, EMAIL_COLUMN, DOB_COLUMN, PHONE_COLUMN);
+            DATABASE_NAME, ID_COLUMN, PICID_COLUMN, NAME_COLUMN, EMAIL_COLUMN, DOB_COLUMN, PHONE_COLUMN);
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -55,12 +57,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         rowValues.put(EMAIL_COLUMN, p.getEmail());
         rowValues.put(DOB_COLUMN, p.getDob());
         rowValues.put(PHONE_COLUMN, p.getPhone());
+        rowValues.put(PICID_COLUMN, p.getAvatarId());
 
         return database.insertOrThrow(DATABASE_NAME, null, rowValues);
     }
 
     public ArrayList<Person> getDetails(){
-        Cursor results = database.query("details", new String[] {"person_id", "name", "email", "dob", "phone"},
+        Cursor results = database.query("details", new String[] {"person_id", "picture_id", "name", "email", "dob", "phone"},
                 null, null, null, null, "name");
 
         ArrayList<Person> listPeople = new ArrayList<>();
@@ -72,6 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String email = results.getString(2);
             String dob = results.getString(3);
             String phone = results.getString(4);
+            int picid = results.getInt(5);
 
             listPeople.add(new Person(name, email, dob, phone));
             results.moveToNext();

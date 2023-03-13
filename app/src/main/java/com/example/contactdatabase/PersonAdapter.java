@@ -3,6 +3,7 @@ package com.example.contactdatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +21,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
     @Override
     public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
-        return new PersonViewHolder(v);
+        ImageView imageView = (ImageView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
+        return new PersonViewHolder(v, imageView);
     }
 
     @Override
@@ -29,6 +31,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
         holder.tvEmail.setText(people.get(position).getEmail());
         holder.tvDob.setText(people.get(position).getDob());
         holder.tvPhone.setText(people.get(position).getPhone());
+        holder.imageView2.setImageResource(people.get(position).getAvatarId());
+
 
         holder.tvName.setFocusable(false);
         holder.tvEmail.setFocusable(false);
