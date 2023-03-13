@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button saveBtn = findViewById(R.id.saveBtn);
         saveBtn.setOnClickListener(v -> saveDetails());
+
+        Button selectBtn = findViewById(R.id.selectBtn);
+        selectBtn.setOnClickListener(view -> changeImage());
+    }
+
+    private void changeImage() {
+
     }
 
     private void saveDetails() {
