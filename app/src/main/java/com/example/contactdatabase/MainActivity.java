@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 .maxResultSize(150,150)
                 .start());
 
-        ImageView imageView = findViewById(R.id.imageView);
-        imageView.setBackgroundResource(R.drawable.userimg);
+        image = findViewById(R.id.imageView);
+        image.setBackgroundResource(R.drawable.userimg);
 
     }
 
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         assert data != null;
         Uri uri = data.getData();
         image.setImageURI(uri);
+        image.setBackgroundResource(0);
     }
 }
 
