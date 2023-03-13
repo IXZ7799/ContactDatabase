@@ -6,6 +6,7 @@
     <string name="dobText">DoB:</string>
     <string name="phoneText">Phone:</string>
     <string name="detailsText">-</string>
+    <string name="avatarDesc">Avatar</string>
 
     <string name="nameText1">Name:</string>
     <string name="emailText1">Email:</string>

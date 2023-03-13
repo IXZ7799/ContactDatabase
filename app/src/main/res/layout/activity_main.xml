@@ -150,9 +150,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginTop="160dp"
+        android:contentDescription="@string/avatarDesc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <io.getstream.avatarview.AvatarView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:avatarViewBorderWidth="3dp"
+        app:avatarViewIndicatorBorderSizeCriteria="10"
+        app:avatarViewIndicatorEnabled="true"
+        app:avatarViewIndicatorPosition="bottomRight"
+        app:avatarViewIndicatorSizeCriteria="9"
+        app:avatarViewInitialsTextStyle="bold"
+        app:avatarViewShape="circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/selectBtn"
