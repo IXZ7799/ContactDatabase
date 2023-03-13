@@ -64,7 +64,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 null, null, null, null, "name");
 
         ArrayList<Person> listPeople = new ArrayList<>();
-        String resultText = "";
 
         results.moveToFirst();
         while (!results.isAfterLast()) {
@@ -74,8 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String dob = results.getString(3);
             String phone = results.getString(4);
 
-            resultText += id + " " + name + " " + email + " " + dob + " " + phone + " " + "\n";
-
+            listPeople.add(new Person(name, email, dob, phone));
             results.moveToNext();
         }
 
