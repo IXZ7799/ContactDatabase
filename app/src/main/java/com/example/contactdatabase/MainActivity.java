@@ -1,10 +1,8 @@
 package com.example.contactdatabase;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         String dob = dobText.getText().toString();
         String phone = phoneText.getText().toString();
 
-            Person p = new Person(0, Uri.parse(avatar), name, email, dob, phone);
+            Person p = new Person(0, avatar, name, email, dob, phone);
 
             long personId = dbHelper.insertDetails(p);
 
@@ -69,14 +67,5 @@ public class MainActivity extends AppCompatActivity {
     } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        assert data != null;
-        Uri uri = data.getData();
-        image.setImageURI(uri);
-        image.setBackgroundResource(0);
     }
 }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.net.Uri;
 import android.util.Log;
 import java.util.ArrayList;
 
@@ -58,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         rowValues.put(EMAIL_COLUMN, p.getEmail());
         rowValues.put(DOB_COLUMN, p.getDob());
         rowValues.put(PHONE_COLUMN, p.getPhone());
-        rowValues.put(AVATAR_COLUMN, p.getAvatar().toString());
+        rowValues.put(AVATAR_COLUMN, p.getAvatar());
 
         return database.insertOrThrow(DATABASE_NAME, null, rowValues);
     }
@@ -72,7 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         results.moveToFirst();
         while (!results.isAfterLast()) {
             int id = results.getInt(0);
-            Uri avatar = Uri.parse(results.getString(1));
+            String avatar = "";
             String name = results.getString(2);
             String email = results.getString(3);
             String dob = results.getString(4);

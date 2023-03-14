@@ -1,16 +1,14 @@
 package com.example.contactdatabase;
 
-import android.net.Uri;
-
 public class Person {
     private final int id;
-    private Uri avatar;
+    private final String avatar;
     private final String name;
     private final String email;
     private final String dob;
     private final String phone;
 
-    public Person(int id, Uri avatar, String name, String email, String dob, String phone) {
+    public Person(int id, String avatar, String name, String email, String dob, String phone) {
         this.id = id;
         this.avatar = avatar;
         this.name = name;
@@ -23,13 +21,7 @@ public class Person {
         return id;
     }
 
-    public Uri getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(Uri avatar) {
-        this.avatar = avatar;
-    }
+    public String getAvatar() {return avatar;}
 
     public String getName() {
         return name;
