@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class PersonViewHolder extends RecyclerView.ViewHolder {
 
     public TextView tvName, tvEmail, tvDob, tvPhone;
-    public ImageView imageView2;
+    public ImageView imageView;
 
     public PersonViewHolder(@NonNull View itemView, ImageView imageView) {
         super(itemView);
@@ -19,7 +19,7 @@ public class PersonViewHolder extends RecyclerView.ViewHolder {
         tvEmail = itemView.findViewById(R.id.tvEmail);
         tvDob = itemView.findViewById(R.id.tvDob);
         tvPhone = itemView.findViewById(R.id.tvPhone);
-        this.imageView2 = imageView;
+        this.imageView = imageView;
     }
 }
 

@@ -21,7 +21,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
     @Override
     public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
-        ImageView imageView = (ImageView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
+        ImageView imageView = v.findViewById(R.id.imageView);
         return new PersonViewHolder(v, imageView);
     }
 
@@ -31,7 +31,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
         holder.tvEmail.setText(people.get(position).getEmail());
         holder.tvDob.setText(people.get(position).getDob());
         holder.tvPhone.setText(people.get(position).getPhone());
-        holder.imageView2.setImageResource(people.get(position).getAvatarId());
+        holder.imageView.setImageResource(people.get(position).getAvatarId());
 
 
         holder.tvName.setFocusable(false);
