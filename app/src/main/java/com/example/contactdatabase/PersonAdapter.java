@@ -5,8 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +31,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
         holder.tvEmail.setText(people.get(position).getEmail());
         holder.tvDob.setText(people.get(position).getDob());
         holder.tvPhone.setText(people.get(position).getPhone());
-        holder.imageView1.setImageResource(R.drawable.userimg);
+        holder.imageView1.setImageResource(people.get(position).getAvatar());
 
         holder.tvName.setFocusable(false);
         holder.tvEmail.setFocusable(false);

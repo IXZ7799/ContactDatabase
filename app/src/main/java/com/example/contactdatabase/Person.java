@@ -2,9 +2,10 @@ package com.example.contactdatabase;
 
 public class Person {
     private int id;
-    private final String avatar, name, email, dob, phone;
+    private final int avatar;
+    private final String name, email, dob, phone;
 
-    public Person(int id, String avatar, String name, String email, String dob, String phone) {
+    public Person(int id, int avatar, String name, String email, String dob, String phone) {
         this.id = id;
         this.avatar = avatar;
         this.name = name;
@@ -13,7 +14,7 @@ public class Person {
         this.phone = phone;
     }
 
-    public Person(String avatar, String name, String email, String dob, String phone) {
+    public Person(int avatar, String name, String email, String dob, String phone) {
         this.avatar = avatar;
         this.name = name;
         this.email = email;
@@ -21,9 +22,10 @@ public class Person {
         this.phone = phone;
     }
 
+    @SuppressWarnings("unused")
     public int getId() {return id;}
 
-    public String getAvatar() {return avatar;}
+    public int getAvatar() {return avatar;}
 
     public String getName() {
         return name;

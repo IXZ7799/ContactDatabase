@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int[] images = {R.drawable.userimg, R.drawable.usersolid, R.drawable.usernurse, R.drawable.usersecret, R.drawable.usertie};
+    int currentImage = R.drawable.userimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private void changeImage() {
         int randomIndex = (int) (Math.random() * images.length);
         ImageView imageView = findViewById(R.id.imageView);
-        imageView.setImageResource(images[randomIndex]);
+        currentImage = images[randomIndex];
+        imageView.setImageResource(currentImage);
     }
 
     private void saveDetails() {
@@ -44,15 +46,13 @@ public class MainActivity extends AppCompatActivity {
         EditText emailText = findViewById(R.id.emailInput);
         EditText dobText = findViewById(R.id.dobInput);
         EditText phoneText = findViewById(R.id.phoneInput);
-        ImageView avatarImage = findViewById(R.id.imageView);
 
-        String avatar = avatarImage.toString();
         String name = nameText.getText().toString();
         String email = emailText.getText().toString();
         String dob = dobText.getText().toString();
         String phone = phoneText.getText().toString();
 
-            Person p = new Person(name, email, dob, phone, avatar);
+            Person p = new Person(currentImage, name, email, dob, phone);
 
             long personId = dbHelper.insertDetails(p);
 
