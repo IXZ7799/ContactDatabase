@@ -63,21 +63,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Person> getDetails(){
-        Cursor results = database.query("details", new String[] {"person_id", "avatar", "name", "email", "dob", "phone"},
+        Cursor results = database.query("details", new String[] {"person_id", "name", "email", "dob", "phone", "avatar"},
                 null, null, null, null, "name");
 
         ArrayList<Person> listPeople = new ArrayList<>();
 
         results.moveToFirst();
         while (!results.isAfterLast()) {
-            int id = results.getInt(1);
-            String name = results.getString(2);
-            String email = results.getString(3);
-            String dob = results.getString(4);
-            String phone = results.getString(5);
-            String avatar = results.getString(6);
+            int id = results.getInt(0);
+            String name = results.getString(1);
+            String email = results.getString(2);
+            String dob = results.getString(3);
+            String phone = results.getString(4);
+            String avatar = results.getString(5);
 
-            listPeople.add(new Person(id, avatar, name, email, dob, phone));
+            listPeople.add(new Person(id, name, email, dob, phone, avatar));
             results.moveToNext();
         }
 

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         EditText emailText = findViewById(R.id.emailInput);
         EditText dobText = findViewById(R.id.dobInput);
         EditText phoneText = findViewById(R.id.phoneInput);
-        ImageView avatarImage = findViewById(R.id.imageView1);
+        ImageView avatarImage = findViewById(R.id.imageView);
 
         String avatar = avatarImage.toString();
         String name = nameText.getText().toString();
