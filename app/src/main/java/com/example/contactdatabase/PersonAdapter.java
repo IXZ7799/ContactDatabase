@@ -34,7 +34,6 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
         holder.tvDob.setText(people.get(position).getDob());
         holder.tvPhone.setText(people.get(position).getPhone());
 
-
         holder.tvName.setFocusable(false);
         holder.tvEmail.setFocusable(false);
         holder.tvDob.setFocusable(false);
