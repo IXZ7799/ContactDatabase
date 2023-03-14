@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -30,13 +31,14 @@ public class DetailsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.detailsText);
         layoutManager = new LinearLayoutManager(this);
 
-        DatabaseHelper db = new DatabaseHelper(this);
-        ArrayList<Person> details = db.getDetails();
-
-        myPersonAdapter = new PersonAdapter(details);
-        recyclerView.setAdapter(myPersonAdapter);
-        recyclerView.setLayoutManager(layoutManager);
-
+        try (DatabaseHelper db = new DatabaseHelper(this)) {
+            ArrayList<Person> details = db.getDetails();
+            myPersonAdapter = new PersonAdapter(details);
+            recyclerView.setAdapter(myPersonAdapter);
+            recyclerView.setLayoutManager(layoutManager);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
 
