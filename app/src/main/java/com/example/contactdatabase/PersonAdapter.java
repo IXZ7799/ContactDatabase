@@ -28,8 +28,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     @Override
     public void onBindViewHolder(@NonNull PersonViewHolder holder, int position) {
-        Person person = people.get(position);
-        holder.tvName.setText(person.getName());
+        holder.tvName.setText(people.get(position).getName());
         holder.tvEmail.setText(people.get(position).getEmail());
         holder.tvDob.setText(people.get(position).getDob());
         holder.tvPhone.setText(people.get(position).getPhone());

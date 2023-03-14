@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         String dob = dobText.getText().toString();
         String phone = phoneText.getText().toString();
 
-            Person p = new Person(0, avatar, name, email, dob, phone);
+            Person p = new Person(name, email, dob, phone, avatar);
 
             long personId = dbHelper.insertDetails(p);
 

@@ -30,12 +30,12 @@ public class DetailsActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.detailsText);
         layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
         try (DatabaseHelper db = new DatabaseHelper(this)) {
             ArrayList<Person> details = db.getDetails();
             myPersonAdapter = new PersonAdapter(details);
             recyclerView.setAdapter(myPersonAdapter);
-            recyclerView.setLayoutManager(layoutManager);
         } catch (SQLException e) {
             e.printStackTrace();
         }
