@@ -71,11 +71,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         results.moveToFirst();
         while (!results.isAfterLast()) {
             int id = results.getInt(0);
-            String name = results.getString(1);
-            String email = results.getString(2);
-            String dob = results.getString(3);
-            String phone = results.getString(4);
-            String avatar = results.getString(5);
+            String avatar = results.getString(1);
+            String name = results.getString(2);
+            String email = results.getString(3);
+            String dob = results.getString(4);
+            String phone = results.getString(5);
 
             listPeople.add(new Person(id, avatar, name, email, dob, phone));
             results.moveToNext();
