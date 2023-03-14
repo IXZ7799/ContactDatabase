@@ -33,7 +33,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
         holder.tvEmail.setText(people.get(position).getEmail());
         holder.tvDob.setText(people.get(position).getDob());
         holder.tvPhone.setText(people.get(position).getPhone());
-        holder.imageView1.setImageResource(R.drawable.userimg);
+        holder.imageView1.setImageResource(R.drawable.usersolid);
 
         holder.tvName.setFocusable(false);
         holder.tvEmail.setFocusable(false);

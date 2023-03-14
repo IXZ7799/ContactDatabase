@@ -9,11 +9,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.github.dhaval2404.imagepicker.ImagePicker;
-
 public class MainActivity extends AppCompatActivity {
 
-    ImageView image;
+    int[] images = {R.drawable.userimg, R.drawable.usersolid, R.drawable.usernurse, R.drawable.usersecret, R.drawable.usertie};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +28,11 @@ public class MainActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(v -> saveDetails());
 
         Button selectBtn = findViewById(R.id.selectBtn);
-        selectBtn.setOnClickListener(view -> ImagePicker.with(MainActivity.this)
-                .crop()
-                .maxResultSize(150,150)
-                .start());
-
-        image = findViewById(R.id.imageView);
-        image.setBackgroundResource(R.drawable.userimg);
-
+        selectBtn.setOnClickListener(v -> {
+            int randomIndex = (int) (Math.random() * images.length);
+            ImageView imageView = findViewById(R.id.imageView);
+            imageView.setImageResource(images[randomIndex]);
+        });
     }
 
     private void saveDetails() {
@@ -47,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         EditText emailText = findViewById(R.id.emailInput);
         EditText dobText = findViewById(R.id.dobInput);
         EditText phoneText = findViewById(R.id.phoneInput);
-        ImageView avatarImage = findViewById(R.id.imageView);
+        ImageView avatarImage = findViewById(R.id.imageView1);
 
         String avatar = avatarImage.toString();
         String name = nameText.getText().toString();
