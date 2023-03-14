@@ -2,7 +2,7 @@ package com.example.contactdatabase;
 
 public class Person {
     private int id;
-    private String avatar, name, email, dob, phone;
+    private final String avatar, name, email, dob, phone;
 
     public Person(int id, String avatar, String name, String email, String dob, String phone) {
         this.id = id;

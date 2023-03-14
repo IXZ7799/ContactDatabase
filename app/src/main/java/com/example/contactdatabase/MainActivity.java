@@ -28,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(v -> saveDetails());
 
         Button selectBtn = findViewById(R.id.selectBtn);
-        selectBtn.setOnClickListener(v -> {
-            int randomIndex = (int) (Math.random() * images.length);
-            ImageView imageView = findViewById(R.id.imageView);
-            imageView.setImageResource(images[randomIndex]);
-        });
+        selectBtn.setOnClickListener(v -> changeImage());
+    }
+
+    private void changeImage() {
+        int randomIndex = (int) (Math.random() * images.length);
+        ImageView imageView = findViewById(R.id.imageView);
+        imageView.setImageResource(images[randomIndex]);
     }
 
     private void saveDetails() {
