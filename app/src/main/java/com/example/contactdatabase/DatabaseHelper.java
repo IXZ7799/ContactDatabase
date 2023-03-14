@@ -53,11 +53,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public long insertDetails(Person p){
         ContentValues rowValues = new ContentValues();
 
+        rowValues.put(AVATAR_COLUMN, p.getAvatar());
         rowValues.put(NAME_COLUMN, p.getName());
         rowValues.put(EMAIL_COLUMN, p.getEmail());
         rowValues.put(DOB_COLUMN, p.getDob());
         rowValues.put(PHONE_COLUMN, p.getPhone());
-        rowValues.put(AVATAR_COLUMN, p.getAvatar());
 
         return database.insertOrThrow(DATABASE_NAME, null, rowValues);
     }
