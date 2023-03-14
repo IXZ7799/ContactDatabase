@@ -59,7 +59,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
             tvEmail = itemView.findViewById(R.id.tvEmail);
             tvDob = itemView.findViewById(R.id.tvDob);
             tvPhone = itemView.findViewById(R.id.tvPhone);
-            imageView1 = itemView.findViewById(R.id.imageView);
+            imageView1 = itemView.findViewById(R.id.imageView1);
         }
     }
 }
