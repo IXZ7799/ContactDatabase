@@ -49,15 +49,17 @@ public class MainActivity extends AppCompatActivity {
         EditText emailText = findViewById(R.id.emailInput);
         EditText dobText = findViewById(R.id.dobInput);
         EditText phoneText = findViewById(R.id.phoneInput);
+        ImageView avatarImage = findViewById(R.id.imageView);
 
+        String avatar = avatarImage.toString();
         String name = nameText.getText().toString();
         String email = emailText.getText().toString();
         String dob = dobText.getText().toString();
         String phone = phoneText.getText().toString();
 
-        Person p = new Person(name, dob, email, phone);
+            Person p = new Person(0, Uri.parse(avatar), name, email, dob, phone);
 
-        long personId = dbHelper.insertDetails(p);
+            long personId = dbHelper.insertDetails(p);
 
         Toast.makeText(this, "Person has been created with id: " + personId,
                 Toast.LENGTH_LONG).show();

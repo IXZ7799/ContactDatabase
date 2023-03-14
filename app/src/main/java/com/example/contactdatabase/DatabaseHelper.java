@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.util.Log;
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "details";
 
     public static final String ID_COLUMN = "person_id";
-    public static final String PICID_COLUMN = "picture_id";
+    public static final String AVATAR_COLUMN = "avatar";
     public static final String NAME_COLUMN = "name";
     public static final String EMAIL_COLUMN = "email";
     public static final String DOB_COLUMN = "dob";
@@ -23,13 +24,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = String.format(
             "CREATE TABLE %s (" +
                     "%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "%s INTEGER, " +
+                    "%s TEXT, " +
                     "%s TEXT, " +
                     "%s TEXT, " +
                     "%s TEXT, " +
                     "%s TEXT) ",
 
-            DATABASE_NAME, ID_COLUMN, PICID_COLUMN, NAME_COLUMN, EMAIL_COLUMN, DOB_COLUMN, PHONE_COLUMN);
+            DATABASE_NAME, ID_COLUMN, AVATAR_COLUMN, NAME_COLUMN, EMAIL_COLUMN, DOB_COLUMN, PHONE_COLUMN);
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -57,13 +58,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         rowValues.put(EMAIL_COLUMN, p.getEmail());
         rowValues.put(DOB_COLUMN, p.getDob());
         rowValues.put(PHONE_COLUMN, p.getPhone());
-        rowValues.put(PICID_COLUMN, p.getAvatarId());
+        rowValues.put(AVATAR_COLUMN, p.getAvatar().toString());
 
         return database.insertOrThrow(DATABASE_NAME, null, rowValues);
     }
 
     public ArrayList<Person> getDetails(){
-        Cursor results = database.query("details", new String[] {"person_id", "picture_id", "name", "email", "dob", "phone"},
+        Cursor results = database.query("details", new String[] {"person_id", "avatar", "name", "email", "dob", "phone"},
                 null, null, null, null, "name");
 
         ArrayList<Person> listPeople = new ArrayList<>();
@@ -71,13 +72,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         results.moveToFirst();
         while (!results.isAfterLast()) {
             int id = results.getInt(0);
-            int picid = results.getInt(1);
+            Uri avatar = Uri.parse(results.getString(1));
             String name = results.getString(2);
             String email = results.getString(3);
             String dob = results.getString(4);
             String phone = results.getString(5);
 
-            listPeople.add(new Person(id, picid, name, email, dob, phone));
+            listPeople.add(new Person(id, avatar, name, email, dob, phone));
             results.moveToNext();
         }
 
@@ -85,7 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.close();
         return listPeople;
     }
-
 }
+
 
 

@@ -1,34 +1,49 @@
 package com.example.contactdatabase;
 
+import android.net.Uri;
+
 public class Person {
-    private final String name, email, dob, phone;
-    private int id, avatarId;
+    private final int id;
+    private Uri avatar;
+    private final String name;
+    private final String email;
+    private final String dob;
+    private final String phone;
 
-    public Person(String name, String email, String dob, String phone) {
-        this.name = name;
-        this.email = email;
-        this.dob = dob;
-        this.phone = phone;
-    }
-    public Person(int id, int avatarId, String name, String email, String dob, String phone) {
-        this.avatarId = avatarId;
+    public Person(int id, Uri avatar, String name, String email, String dob, String phone) {
         this.id = id;
+        this.avatar = avatar;
         this.name = name;
         this.email = email;
         this.dob = dob;
         this.phone = phone;
     }
 
-    public int getId(){return id;}
-    public int getAvatarId() {return avatarId;}
-    public String getName(){
+    public int getId() {
+        return id;
+    }
+
+    public Uri getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Uri avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getName() {
         return name;
     }
-    public String getEmail(){
+
+    public String getEmail() {
         return email;
     }
-    public String getDob(){
+
+    public String getDob() {
         return dob;
     }
-    public String getPhone(){return phone;}
+
+    public String getPhone() {
+        return phone;
+    }
 }
