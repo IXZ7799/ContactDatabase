@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
@@ -31,13 +33,13 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
         holder.tvEmail.setText(people.get(position).getEmail());
         holder.tvDob.setText(people.get(position).getDob());
         holder.tvPhone.setText(people.get(position).getPhone());
-        holder.imageView.setImageResource(people.get(position).getAvatarId());
 
 
         holder.tvName.setFocusable(false);
         holder.tvEmail.setFocusable(false);
         holder.tvDob.setFocusable(false);
         holder.tvPhone.setFocusable(false);
+
     }
 
     @Override

@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = String.format(
             "CREATE TABLE %s (" +
                     "%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "%s INTEGER AUTOINCREMENT, " +
+                    "%s INTEGER, " +
                     "%s TEXT, " +
                     "%s TEXT, " +
                     "%s TEXT, " +
@@ -71,13 +71,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         results.moveToFirst();
         while (!results.isAfterLast()) {
             int id = results.getInt(0);
-            String name = results.getString(1);
-            String email = results.getString(2);
-            String dob = results.getString(3);
-            String phone = results.getString(4);
-            int picid = results.getInt(5);
+            int picid = results.getInt(1);
+            String name = results.getString(2);
+            String email = results.getString(3);
+            String dob = results.getString(4);
+            String phone = results.getString(5);
 
-            listPeople.add(new Person(name, email, dob, phone));
+            listPeople.add(new Person(id, picid, name, email, dob, phone));
             results.moveToNext();
         }
 
@@ -85,6 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.close();
         return listPeople;
     }
+
 }
 
 
