@@ -22,4 +22,3 @@ public class PersonViewHolder extends RecyclerView.ViewHolder {
         this.imageView1 = imageView1;
     }
 }
-

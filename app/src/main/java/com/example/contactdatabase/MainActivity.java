@@ -80,4 +80,3 @@ public class MainActivity extends AppCompatActivity {
         image.setBackgroundResource(0);
     }
 }
-

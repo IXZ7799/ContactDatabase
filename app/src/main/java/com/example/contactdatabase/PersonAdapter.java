@@ -25,13 +25,11 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
     public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
         ImageView imageView = v.findViewById(R.id.imageView1);
-        Log.d("PersonAdapter", "onCreateViewHolder called");
         return new PersonViewHolder(v, imageView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PersonViewHolder holder, int position) {
-        Log.d("PersonAdapter", "onBindViewHolder called for position: " + position);
         Person person = people.get(position);
         holder.tvName.setText(people.get(position).getName());
         holder.tvEmail.setText(people.get(position).getEmail());
@@ -48,7 +46,6 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
 
     @Override
     public int getItemCount() {
-        Log.d("PersonAdapter", "getItemCount called, returning: " + people.size());
         return people.size();
     }
 }
