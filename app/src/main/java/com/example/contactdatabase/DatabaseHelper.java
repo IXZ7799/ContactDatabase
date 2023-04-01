@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "details";
 
     public static final String ID_COLUMN = "person_id";
-    public static final String AVATAR_COLUMN = "avatar_id";
+    public static final String AVATAR_COLUMN = "picture_id";
     public static final String NAME_COLUMN = "name";
     public static final String EMAIL_COLUMN = "email";
     public static final String DOB_COLUMN = "dob";
@@ -63,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Person> getDetails(){
-        Cursor results = database.query("details", new String[] {"person_id", "avatar_id", "name", "email", "dob", "phone"},
+        Cursor results = database.query("details", new String[] {"person_id", "picture_id", "name", "email", "dob", "phone"},
                 null, null, null, null, "name");
 
         ArrayList<Person> listPeople = new ArrayList<>();
